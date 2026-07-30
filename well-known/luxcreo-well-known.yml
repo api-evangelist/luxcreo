@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: probed
+source: live HTTP probes of apis.yml base hosts
+hosts:
+- host: www.luxcreo.com
+  probes:
+  - path: /.well-known/security.txt
+    status: 301
+    redirect_to: https://luxcreo.com/.well-known/security.txt
+    final_status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 301
+    final_status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 301
+    final_status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 301
+    final_status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 301
+    final_status: 404
+    file: null
+- host: luxcreo.com
+  probes:
+  - path: /.well-known/security.txt
+    status: 404
+    file: null
+  - path: /.well-known/openid-configuration
+    status: 404
+    file: null
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+    file: null
+  - path: /.well-known/api-catalog
+    status: 404
+    file: null
+  - path: /.well-known/ai-plugin.json
+    status: 404
+    file: null
+notes: No .well-known documents published. www redirects to apex, which returns 404 for all probed paths.
